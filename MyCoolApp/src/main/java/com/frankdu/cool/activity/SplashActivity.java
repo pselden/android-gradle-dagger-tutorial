@@ -3,7 +3,15 @@ package com.frankdu.cool.activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.frankdu.cool.things.Thing;
+import com.frankdu.cool.things.Thingy;
+
+import javax.inject.Inject;
+
 public class SplashActivity extends BaseCoolActivity {
+    @Inject
+    Thingy thingy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,9 +26,11 @@ public class SplashActivity extends BaseCoolActivity {
         //     https://developers.facebook.com/docs/android/login-with-facebook/
 
         // We we simply start next activity
+        thingy.doThing();
         Intent nextIntent = getNextIntent();
         startActivity(nextIntent);
         finish();
+
     }
 
     private Intent getNextIntent() {
